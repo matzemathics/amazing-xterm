@@ -1,4 +1,4 @@
-from debian:bullseye
+FROM debian:bullseye
 
 # add xpra repository
 ADD https://xpra.org/gpg.asc /usr/share/keyrings/xpra.asc
@@ -15,7 +15,10 @@ ENTRYPOINT [ \
     "xpra", "start", ":42", \
     "--bind-tcp=0.0.0.0:10000", \
     "--no-daemon", \
+    "--sharing=yes", \
     "--dbus-launch=", \
+    "--mdns=no", \
+    "--notifications=no", \
     "--start-child=xterm -fs 14 -fa DejaVuMonoSans", \
     "--exit-with-children=yes" \
 ]
