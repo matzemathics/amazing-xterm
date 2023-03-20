@@ -1,8 +1,8 @@
 FROM debian:bullseye
 
 # add xpra repository
-ADD https://xpra.org/gpg.asc /usr/share/keyrings/xpra.asc
-ADD https://raw.githubusercontent.com/Xpra-org/xpra/master/packaging/repos/bullseye/xpra.sources /etc/apt/sources.list.d
+ADD --chmod=644 https://xpra.org/gpg.asc /usr/share/keyrings/xpra.asc
+ADD --chmod=644 https://raw.githubusercontent.com/Xpra-org/xpra/master/packaging/repos/bullseye/xpra.sources /etc/apt/sources.list.d
 
 # install packages
 ENV DEBIAN_FRONTEND=noninteractive
